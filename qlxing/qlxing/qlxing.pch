@@ -1,0 +1,23 @@
+//
+//  qlxing.pch
+//  qlxing
+//
+//  Created by Stephen Chin on 16/6/21.
+//  Copyright © 2016年 Stephen Chin. All rights reserved.
+//
+
+#ifndef qlxing_pch
+#define qlxing_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* qlxing_pch */
+
+
+#ifdef __OBJC__
+    #import "ACMacros.h"
+    #import "Constants.h"
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
