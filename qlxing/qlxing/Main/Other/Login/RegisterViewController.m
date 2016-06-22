@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "Util.h"
+#import "NSObject+Blocks.h"
 
 @interface RegisterViewController (){
 //    UIButton *getCodeBtn;
@@ -119,7 +120,11 @@
         [self hideHud];
         DLog(@"%@",responseObject);
 //        NSDictionary *dic= [NSDictionary dictionaryWithDictionary:responseObject];
+        [self showHintInView:self.view hint:@"注册成功"];
         
+        [self performBlock:^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } afterDelay:1.5];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

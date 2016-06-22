@@ -53,7 +53,7 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
     hud.removeFromSuperViewOnHide = YES;
     [view addSubview:hud];
     [hud showAnimated:YES];
-    [hud hideAnimated:YES afterDelay:2];
+    [hud hideAnimated:YES afterDelay:1.5];
 }
 
 
