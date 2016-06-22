@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="account" destination="prr-ch-LfI" id="C3w-ib-Ogh"/>
                 <outlet property="code" destination="MNp-cb-tlH" id="3Gs-00-dHi"/>
+                <outlet property="codeBtn" destination="vvc-gt-Zwi" id="cF1-aS-mKT"/>
                 <outlet property="password" destination="5R4-EL-F0z" id="zcc-Tc-KL9"/>
                 <outlet property="regBtn" destination="5b8-zF-JBH" id="tsW-aE-TGR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -74,6 +75,16 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-gt-Zwi">
+                    <rect key="frame" x="200" y="144" width="90" height="40"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="90" id="laL-Bs-7c4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                    <state key="normal" title="获取验证码"/>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -86,15 +97,18 @@
                 <constraint firstItem="5b8-zF-JBH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ABo-W8-LGj"/>
                 <constraint firstItem="MNp-cb-tlH" firstAttribute="leading" secondItem="prr-ch-LfI" secondAttribute="leading" id="CIk-yG-apV"/>
                 <constraint firstItem="5R4-EL-F0z" firstAttribute="width" secondItem="prr-ch-LfI" secondAttribute="width" id="Cdu-Gg-xtG"/>
+                <constraint firstItem="vvc-gt-Zwi" firstAttribute="centerY" secondItem="MNp-cb-tlH" secondAttribute="centerY" id="DWj-xF-Zkd"/>
                 <constraint firstItem="5b8-zF-JBH" firstAttribute="width" secondItem="prr-ch-LfI" secondAttribute="width" id="Gnz-Lf-qvS"/>
                 <constraint firstItem="5R4-EL-F0z" firstAttribute="top" secondItem="oU7-1W-h02" secondAttribute="bottom" constant="20" id="HEp-k9-fKN"/>
                 <constraint firstItem="oU7-1W-h02" firstAttribute="top" secondItem="MNp-cb-tlH" secondAttribute="bottom" constant="20" id="JIo-Pp-eD0"/>
                 <constraint firstItem="vg0-oj-i8j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ree-bB-LgJ"/>
                 <constraint firstItem="oU7-1W-h02" firstAttribute="width" secondItem="prr-ch-LfI" secondAttribute="width" id="d6X-2H-hn2"/>
                 <constraint firstAttribute="trailing" secondItem="vg0-oj-i8j" secondAttribute="trailing" id="eTS-Xe-f9z"/>
+                <constraint firstItem="vvc-gt-Zwi" firstAttribute="height" secondItem="MNp-cb-tlH" secondAttribute="height" id="f0j-1p-aGi"/>
                 <constraint firstItem="MNp-cb-tlH" firstAttribute="top" secondItem="prr-ch-LfI" secondAttribute="bottom" constant="20" id="k6o-4G-fzt"/>
                 <constraint firstItem="prr-ch-LfI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="mx7-Ql-j6T"/>
                 <constraint firstItem="5b8-zF-JBH" firstAttribute="top" secondItem="5R4-EL-F0z" secondAttribute="bottom" constant="40" id="o6Q-nY-Mhw"/>
+                <constraint firstItem="vvc-gt-Zwi" firstAttribute="trailing" secondItem="prr-ch-LfI" secondAttribute="trailing" id="oip-ur-8Ne"/>
                 <constraint firstItem="vg0-oj-i8j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rae-NZ-nPN"/>
                 <constraint firstItem="oU7-1W-h02" firstAttribute="leading" secondItem="prr-ch-LfI" secondAttribute="leading" id="txJ-by-Xgb"/>
             </constraints>

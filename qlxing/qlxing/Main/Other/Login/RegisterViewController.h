@@ -11,9 +11,10 @@
 @interface RegisterViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *regBtn;
+@property (strong, nonatomic) IBOutlet UIButton *codeBtn;
 @property (weak, nonatomic) IBOutlet UITextField *account;
 @property (weak, nonatomic) IBOutlet UITextField *code;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *regBtnCenterY;
+
 @end

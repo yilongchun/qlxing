@@ -21,13 +21,9 @@
 /* ****************************************************************************************************************** */
 /** DEBUG LOG **/
 #ifdef DEBUG
-
-#define DLog( s, ... ) NSLog( @"< %@:(%d) > %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
-
+# define DLog(fmt, ...) NSLog((@"\n[文件名:%s]\n" "[函数名:%s]\n" "[行号:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
-
-#define DLog( s, ... )
-
+# define DLog(...);
 #endif
 
 

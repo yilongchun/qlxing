@@ -24,6 +24,7 @@
     
     [_regBtn setBackgroundColor:DEFAULT_COLOR];
     ViewBorderRadius(_regBtn, 5, 1.0, DEFAULT_COLOR);
+    ViewBorderRadius(_codeBtn, 5, 0.5, RGBA(200, 200, 200, 0.8) );
     
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
 //    [self.view addGestureRecognizer:tap];

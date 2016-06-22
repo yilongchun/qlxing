@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 
+
 @interface LoginViewController (){
 }
 
@@ -35,7 +36,7 @@
 //    [_loginBtn setBackgroundImage:[UIImage imageNamed:@"btnBg"] forState:UIControlStateNormal];
 //    _loginBtn.layer.masksToBounds = YES;
 //    _loginBtn.layer.cornerRadius = 20;
-//    [_loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+    [_loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
 //    [self.account setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 //    [self.password setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 //    
@@ -48,63 +49,73 @@
     returnButtonItem.title = @"返回";
     self.navigationItem.backBarButtonItem = returnButtonItem;
      [self.navigationController.navigationBar setTintColor:DEFAULT_COLOR];
-//
-//    _account.text = @"18671701215";
-//    _password.text = @"123456";
+
+    _account.text = @"1867170121";
+    _password.text = @"12345";
 }
 
 //登录
 -(void)login{
-//    if ([_account.text isEqualToString:@""]) {
-//        [self showHint:@"请输入手机号码"];
-//        [_account becomeFirstResponder];
-//        return;
-//    }
-//    if ([_password.text isEqualToString:@""]) {
-//        [self showHint:@"请输入密码"];
-//        [_password becomeFirstResponder];
-//        return;
-//    }
-//    [self hideKeyBoard];
-//    [self showHudInView:self.view];
+    if ([_account.text isEqualToString:@""]) {
+        [self showHintInView:self.view hint:@"请输入手机号码" ];
+        [_account becomeFirstResponder];
+        return;
+    }
+    if ([_password.text isEqualToString:@""]) {
+        [self showHintInView:self.view hint:@"请输入密码"];
+        [_password becomeFirstResponder];
+        return;
+    }
+    [self hideKeyBoard];
+    [self showHudInView:self.view];
+    
+    
+    
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 //    
-//    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-//    [param setObject:_account.text forKey:@"phone"];
-//    [param setObject:_password.text forKey:@"pwd"];
-//    [param setObject:@"0" forKey:@"platform"];
-//    
-//    [[Client defaultNetClient] POST:API_USER_LOGIN param:param JSONModelClass:[Data class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        DLog(@"JSONModel: %@", responseObject);
-//        Data *res = (Data *)responseObject;
-//        if (res.resultcode == ResultCodeSuccess) {
-//            [self hideHud];
-//            //保存账号密码
-//            [[NSUserDefaults standardUserDefaults] setObject:_account.text forKey:LOGINED_PHONE];
-//            [[NSUserDefaults standardUserDefaults] setObject:_password.text forKey:LOGINED_PASSWORD];
-//            
-////            NSError *error;
-//            NSDictionary *dic = (NSDictionary*)res.result;
-////            UserInfo *userInfo = [[UserInfo alloc] initWithDictionary:[dic objectForKey:@"userInfo"] error:&error];
-////            if (!error) {
-////                DLog(@"%@",userInfo);
-////            }else{
-////                DLog(@"%@",error.description);
-////            }
-//            
-//            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"userInfo"] forKey:LOGINED_USER];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeUserRole" object:nil];
-//
-//        }else {
-//            DLog(@"%@",res.reason);
-//            [self hideHud];
-//            [self showHint:res.reason];
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        DLog(@"Error: %@", error);
-//        [self hideHud];
-//        [self showHint:@"连接服务器失败，请稍后再试!"];
-//        return;
-//    }];
+//    [manager GET:URL parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+//        
+//    }
+//         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//             
+//             NSLog(@"这里打印请求成功要做的事");
+//             
+//         }
+//     
+//         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull   error) {
+//             
+//             NSLog(@"%@",error);  //这里打印错误信息
+//             
+//         }];
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:_account.text forKey:@"identity"];
+    [parameters setObject:_password.text forKey:@"password"];
+
+    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_LOGIN];
+    [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [self hideHud];
+        
+        NSDictionary *dic= [NSDictionary dictionaryWithDictionary:responseObject];
+        DLog(@"%@",dic);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [self hideHud];
+        
+        NSData *data =[error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"];
+        NSString *result  =[[ NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSDictionary *dic= [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+        NSString *message = [dic objectForKey:@"message"];
+        [self showHintInView:self.view hint:NSLocalizedString(message, nil)];
+        DLog(@"%@",dic);
+        
+    }];
+ 
 }
 
 //找回密码

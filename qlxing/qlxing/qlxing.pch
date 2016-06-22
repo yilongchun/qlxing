@@ -18,6 +18,8 @@
 #ifdef __OBJC__
     #import "ACMacros.h"
     #import "Constants.h"
+    #import "AFNetworking.h"
+    #import "UIViewController+HUD.h"
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 #endif
