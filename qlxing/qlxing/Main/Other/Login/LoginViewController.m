@@ -51,8 +51,8 @@
     self.navigationItem.backBarButtonItem = returnButtonItem;
      [self.navigationController.navigationBar setTintColor:DEFAULT_COLOR];
 
-    _account.text = @"1867170121";
-    _password.text = @"12345";
+//    _account.text = @"1867170121";
+//    _password.text = @"12345";
 }
 
 //登录
@@ -68,7 +68,7 @@
         return;
     }
     [self hideKeyBoard];
-    [self showHudInView:self.view];
+    [self showHudInView:self.navigationController.view];
     
     
     

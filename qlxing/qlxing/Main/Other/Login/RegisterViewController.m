@@ -103,7 +103,7 @@
         return;
     }
     [self hideKeyBoard];
-    [self showHudInView:self.view];
+    [self showHudInView:self.navigationController.view];
     
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];

@@ -31,13 +31,15 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
 }
 
 - (void)showHudInView:(UIView *)view hint:(NSString *)hint{
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:view];
-    HUD.bezelView.color = [UIColor blackColor];
-    HUD.contentColor = [UIColor whiteColor];
-    HUD.label.text = hint;
-    [view addSubview:HUD];
-    [HUD showAnimated:YES];
-    [self setHUD:HUD];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    
+//    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:view];
+    hud.bezelView.color = [UIColor blackColor];
+    hud.contentColor = [UIColor whiteColor];
+    hud.label.text = hint;
+//    [view addSubview:HUD];
+//    [HUD showAnimated:YES];
+    [self setHUD:hud];
 }
 
 - (void)showHintInView:(UIView *)view hint:(NSString *)hint {
@@ -71,7 +73,7 @@ static const void *HttpRequestHUDKey = &HttpRequestHUDKey;
     hud.margin = 10.f;
 //    hud setOffset:CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
     hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:2];
+    [hud hideAnimated:YES afterDelay:1.5];
 }
 
 - (void)hideHud{
