@@ -7,3 +7,5 @@
 */
 
 "login failed"="登录失败";
+"invalid code"="验证码无效";
+"Bad Request"="请求失败";

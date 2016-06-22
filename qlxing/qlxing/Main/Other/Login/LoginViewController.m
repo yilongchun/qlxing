@@ -11,6 +11,7 @@
 
 
 @interface LoginViewController (){
+    RegisterViewController *regVc;
 }
 
 @end
@@ -99,8 +100,9 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [self hideHud];
-        
         NSDictionary *dic= [NSDictionary dictionaryWithDictionary:responseObject];
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:dic forKey:LOGINED_USER];
         DLog(@"%@",dic);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -125,8 +127,9 @@
 
 //注册
 -(void)goToRegisger{
-    
-    RegisterViewController *regVc = [[RegisterViewController alloc] init];
+    if (regVc == nil) {
+        regVc = [[RegisterViewController alloc] init];
+    }
     [self.navigationController pushViewController:regVc animated:YES];
 }
 
