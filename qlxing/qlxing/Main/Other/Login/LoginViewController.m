@@ -9,10 +9,11 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "HomeViewController.h"
-
+#import "ForgetPwdViewController.h"
 
 @interface LoginViewController (){
     RegisterViewController *regVc;
+    ForgetPwdViewController *forgetPwdVc;
 }
 
 @end
@@ -42,10 +43,12 @@
 //    [self.account setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 //    [self.password setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 //    
-//    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(findPassword)];
-//    [_forgetPassword addGestureRecognizer:tap1];
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(findPassword)];
+    [_forgetPassword addGestureRecognizer:tap1];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToRegisger)];
     [_toRegister addGestureRecognizer:tap2];
+    
+    
 
     UIBarButtonItem *returnButtonItem = [[UIBarButtonItem alloc] init];
     returnButtonItem.title = @"返回";
@@ -114,7 +117,10 @@
 
 //找回密码
 -(void)findPassword{
-    
+    if (forgetPwdVc == nil) {
+        forgetPwdVc = [[ForgetPwdViewController alloc] init];
+    }
+    [self.navigationController pushViewController:forgetPwdVc animated:YES];
 }
 
 //注册

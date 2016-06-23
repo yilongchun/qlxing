@@ -21,7 +21,7 @@
     
     LoginViewController *vc = [[LoginViewController alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
-    nc.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName:DEFAULT_COLOR};
+    nc.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17],NSFontAttributeName, nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = nc;
     [self.window makeKeyAndVisible];

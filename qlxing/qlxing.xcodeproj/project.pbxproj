@@ -138,6 +138,8 @@
 		44F29F261D1BBFB0005537C3 /* member_no.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44F29F241D1BBFB0005537C3 /* member_no.gif */; };
 		44F29F271D1BBFB0005537C3 /* LOGO-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F29F251D1BBFB0005537C3 /* LOGO-1024.png */; };
 		44F29F2B1D1BCC3C005537C3 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F29F2A1D1BCC3C005537C3 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		44F29F2F1D1BDB5C005537C3 /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F29F2D1D1BDB5C005537C3 /* ForgetPwdViewController.m */; };
+		44F29F301D1BDB5C005537C3 /* ForgetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F29F2E1D1BDB5C005537C3 /* ForgetPwdViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -399,6 +401,9 @@
 		44F29F251D1BBFB0005537C3 /* LOGO-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO-1024.png"; sourceTree = "<group>"; };
 		44F29F291D1BCC3C005537C3 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		44F29F2A1D1BCC3C005537C3 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		44F29F2C1D1BDB5C005537C3 /* ForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdViewController.h; sourceTree = "<group>"; };
+		44F29F2D1D1BDB5C005537C3 /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
+		44F29F2E1D1BDB5C005537C3 /* ForgetPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPwdViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,6 +502,9 @@
 				44155A821D19325300649EA0 /* RegisterViewController.h */,
 				44155A7F1D19325300649EA0 /* RegisterViewController.m */,
 				44155A801D19325300649EA0 /* RegisterViewController.xib */,
+				44F29F2C1D1BDB5C005537C3 /* ForgetPwdViewController.h */,
+				44F29F2D1D1BDB5C005537C3 /* ForgetPwdViewController.m */,
+				44F29F2E1D1BDB5C005537C3 /* ForgetPwdViewController.xib */,
 			);
 			name = "Login(登录)";
 			path = Login;
@@ -1176,6 +1184,7 @@
 				44F29F1D1D1B8D85005537C3 /* ProductListViewController.xib in Resources */,
 				4457D1521D1A7D48000F20B8 /* Localizable.strings in Resources */,
 				44155A861D19325300649EA0 /* RegisterViewController.xib in Resources */,
+				44F29F301D1BDB5C005537C3 /* ForgetPwdViewController.xib in Resources */,
 				4457D1E61D1A8DA8000F20B8 /* NSDateTimeAgo.bundle in Resources */,
 				44F29F161D1B8D37005537C3 /* ProductActivityTableViewCell.xib in Resources */,
 				44155A601D192C0100649EA0 /* LaunchScreen.storyboard in Resources */,
@@ -1239,6 +1248,7 @@
 				4457D1DE1D1A8DA8000F20B8 /* UIViewController+Visible.m in Sources */,
 				44F29EF61D1B7E99005537C3 /* MJRefreshBackNormalFooter.m in Sources */,
 				44F29EAF1D1B7545005537C3 /* SDWebImagePrefetcher.m in Sources */,
+				44F29F2F1D1BDB5C005537C3 /* ForgetPwdViewController.m in Sources */,
 				4457D1FC1D1A8DA8000F20B8 /* NSString+RemoveEmoji.m in Sources */,
 				44F29EA21D1B7545005537C3 /* TADotView.m in Sources */,
 				44F29EF71D1B7E99005537C3 /* MJRefreshBackStateFooter.m in Sources */,

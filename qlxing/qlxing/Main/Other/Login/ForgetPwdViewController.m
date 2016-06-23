@@ -1,78 +1,41 @@
 //
-//  RegisterViewController.m
-//  qlx
+//  ForgetPwdViewController.m
+//  qlxing
 //
-//  Created by Stephen Chin on 16/3/16.
+//  Created by Stephen Chin on 16/6/23.
 //  Copyright © 2016年 Stephen Chin. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "ForgetPwdViewController.h"
 #import "Util.h"
 #import "NSObject+Blocks.h"
 
-@interface RegisterViewController (){
-//    UIButton *getCodeBtn;
-}
+@interface ForgetPwdViewController ()
 
 @end
 
-@implementation RegisterViewController
+@implementation ForgetPwdViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"注册";
+    self.title = @"重置密码";
     
     [_regBtn setBackgroundColor:DEFAULT_COLOR];
     [_codeBtn setTitleColor:DEFAULT_COLOR forState:UIControlStateNormal];
     ViewBorderRadius(_regBtn, 5, 1.0, DEFAULT_COLOR);
     ViewBorderRadius(_codeBtn, 5, 0.5, RGBA(200, 200, 200, 0.8) );
-    
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
-//    [self.view addGestureRecognizer:tap];
-//    
-//    [self.navigationController setNavigationBarHidden:NO];
-//    self.navigationController.navigationBar.translucent = YES;
-//    [self.navigationController.navigationBar setShadowImage:[Util imageWithColor:[UIColor clearColor] size:CGSizeMake(320, 3)]];
-//    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:RGBA(252, 228, 75,0.0)] forBarMetrics:UIBarMetricsDefault];
-//    
-//    [_regBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [_regBtn setBackgroundImage:[UIImage imageNamed:@"btnBg"] forState:UIControlStateNormal];
-//    _regBtn.layer.masksToBounds = YES;
-//    _regBtn.layer.cornerRadius = 20;
     [_regBtn addTarget:self action:@selector(reg) forControlEvents:UIControlEventTouchUpInside];
-//
-//    [self.account setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-//    [self.code setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-//    [self.password setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-//    
-//    getCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 80, 30)];
-//    getCodeBtn.layer.masksToBounds = YES;
-//    getCodeBtn.layer.cornerRadius = 5;
-//    [getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-//    [getCodeBtn setTitleColor:RGB(154, 154, 154) forState:UIControlStateNormal];
-//    [getCodeBtn setTitleColor:RGB(200, 200, 200) forState:UIControlStateHighlighted];
-//    [getCodeBtn setBackgroundImage:[UIImage createImageWithColor:RGB(230, 230, 230)] forState:UIControlStateNormal];
-//    [getCodeBtn setBackgroundImage:[UIImage createImageWithColor:RGB(240, 240, 240)] forState:UIControlStateHighlighted];
-//    getCodeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [_codeBtn addTarget:self action:@selector(getCode) forControlEvents:UIControlEventTouchUpInside];
-//    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
-//    [rightView addSubview:getCodeBtn];
-//    self.code.rightViewMode = UITextFieldViewModeAlways;
-//    self.code.rightView = rightView;
-//    
-//    if (IS_IPHONE4) {
-//        _regBtnCenterY.constant +=50;
-//    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-//    self.navigationController.navigationBar.translucent = YES;
-//    [self.navigationController.navigationBar setShadowImage:[Util imageWithColor:[UIColor clearColor] size:CGSizeMake(320, 3)]];
-//    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:RGBA(252, 228, 75,0.0)] forBarMetrics:UIBarMetricsDefault];
+    //    self.navigationController.navigationBar.translucent = YES;
+    //    [self.navigationController.navigationBar setShadowImage:[Util imageWithColor:[UIColor clearColor] size:CGSizeMake(320, 3)]];
+    //    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:RGBA(252, 228, 75,0.0)] forBarMetrics:UIBarMetricsDefault];
 }
 
 //注册
@@ -92,11 +55,6 @@
         [_code becomeFirstResponder];
         return;
     }
-    if ([_nickname.text isEqualToString:@""]) {
-        [self showHintInView:self.view hint:@"请输入昵称"];
-        [_nickname becomeFirstResponder];
-        return;
-    }
     if ([_password.text isEqualToString:@""]) {
         [self showHintInView:self.view hint:@"请输入密码"];
         [_password becomeFirstResponder];
@@ -107,20 +65,20 @@
     
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:_account.text forKey:@"phone"];
+    [parameters setObject:_account.text forKey:@"identity"];
     [parameters setObject:_password.text forKey:@"password"];
     [parameters setObject:_code.text forKey:@"code"];
-//    [parameters setObject:_nickname.text forKey:@""];
+    //    [parameters setObject:_nickname.text forKey:@""];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_REGISTER];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_RESETPWD];
     [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [self hideHud];
         DLog(@"%@",responseObject);
-//        NSDictionary *dic= [NSDictionary dictionaryWithDictionary:responseObject];
-        [self showHintInView:self.view hint:@"注册成功"];
+        //        NSDictionary *dic= [NSDictionary dictionaryWithDictionary:responseObject];
+        [self showHintInView:self.view hint:@"重置成功"];
         
         [self performBlock:^{
             [self.navigationController popToRootViewControllerAnimated:YES];
@@ -138,7 +96,7 @@
         DLog(@"%@",dic);
         
     }];
-
+    
 }
 
 //获取验证码
@@ -160,7 +118,7 @@
     [parameters setObject:_account.text forKey:@"phone"];
     [parameters setObject:@"1" forKey:@"type"];
     
-    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_CODE_REGISTER];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_CODE_RESETPWD];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -209,7 +167,7 @@
                 //设置界面的按钮显示 根据自己需求设置
                 _codeBtn.titleLabel.text = @"获取验证码";
                 [_codeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-//                [_codeBtn setBackgroundColor:[UIColor whiteColor]];
+                //                [_codeBtn setBackgroundColor:[UIColor whiteColor]];
                 _codeBtn.userInteractionEnabled = YES;
                 _codeBtn.enabled = YES;
             });
@@ -219,12 +177,12 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置
                 //NSLog(@"____%@",strTime);
-//                [UIView beginAnimations:nil context:nil];
-//                [UIView setAnimationDuration:1];
+                //                [UIView beginAnimations:nil context:nil];
+                //                [UIView setAnimationDuration:1];
                 _codeBtn.titleLabel.text = [NSString stringWithFormat:@"%@秒后重试",strTime];
                 [_codeBtn setTitle:[NSString stringWithFormat:@"%@秒后重试",strTime] forState:UIControlStateNormal];
-//                [_codeBtn setBackgroundColor:[UIColor lightGrayColor]];
-//                [UIView commitAnimations];
+                //                [_codeBtn setBackgroundColor:[UIColor lightGrayColor]];
+                //                [UIView commitAnimations];
                 _codeBtn.userInteractionEnabled = NO;
                 _codeBtn.enabled = NO;
             });
@@ -233,15 +191,4 @@
     });
     dispatch_resume(_timer);
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

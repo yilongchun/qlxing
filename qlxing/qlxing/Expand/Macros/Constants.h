@@ -27,6 +27,8 @@
 #define API_AUTH_LOGIN @"/auth/login"
 //注册
 #define API_AUTH_REGISTER @"/auth/register"
+//重置密码
+#define API_AUTH_RESETPWD @"/auth/resetpwd"
 //发送注册验证码
 #define API_AUTH_CODE_REGISTER @"/auth/code/register"
 //发送登录验证码
