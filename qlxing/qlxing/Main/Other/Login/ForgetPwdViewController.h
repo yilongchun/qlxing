@@ -11,7 +11,7 @@
 @interface ForgetPwdViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *regBtn;
-@property (strong, nonatomic) IBOutlet UIButton *codeBtn;
+//@property (strong, nonatomic) IBOutlet UIButton *codeBtn;
 @property (weak, nonatomic) IBOutlet UITextField *account;
 @property (weak, nonatomic) IBOutlet UITextField *code;
 @property (weak, nonatomic) IBOutlet UITextField *password;

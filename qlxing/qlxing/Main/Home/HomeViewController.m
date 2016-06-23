@@ -202,12 +202,12 @@
 
 /** 点击图片回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    
+    DLog(@"%ld",(long)index);
 }
 
 /** 图片滚动回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index{
-    
+//    DLog(@"%ld",(long)index);
 }
 
 #pragma mark - UITableView UITableViewDataSource

@@ -10,6 +10,7 @@
                 <outlet property="account" destination="eNB-i9-IcD" id="u8l-2r-lVd"/>
                 <outlet property="forgetPassword" destination="Cdm-Mg-XLF" id="dqe-rU-SAV"/>
                 <outlet property="loginBtn" destination="of5-Dw-2i6" id="QpH-qL-23r"/>
+                <outlet property="msgLogin" destination="YHZ-EX-Ne1" id="cW5-aR-Xak"/>
                 <outlet property="password" destination="Ire-RC-XJ5" id="9MR-Tq-kL6"/>
                 <outlet property="toRegister" destination="pq3-Os-VQQ" id="3M0-mA-qD6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -53,8 +54,15 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="短信登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHZ-EX-Ne1">
+                    <rect key="frame" x="30" y="220" width="60" height="18"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of5-Dw-2i6">
-                    <rect key="frame" x="30" y="258" width="260" height="40"/>
+                    <rect key="frame" x="30" y="278" width="260" height="40"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="登录">
@@ -74,8 +82,10 @@
                 <constraint firstAttribute="bottom" secondItem="Ps6-R3-pFm" secondAttribute="bottom" id="MQM-mq-ESD"/>
                 <constraint firstItem="eNB-i9-IcD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="MgN-Tm-ddH"/>
                 <constraint firstItem="pq3-Os-VQQ" firstAttribute="top" secondItem="Ire-RC-XJ5" secondAttribute="bottom" constant="20" id="NcA-fG-92w"/>
+                <constraint firstItem="YHZ-EX-Ne1" firstAttribute="leading" secondItem="eNB-i9-IcD" secondAttribute="leading" id="OIT-Ck-y5H"/>
                 <constraint firstItem="pq3-Os-VQQ" firstAttribute="leading" secondItem="Cdm-Mg-XLF" secondAttribute="trailing" constant="20" id="Pnr-Qe-SK8"/>
-                <constraint firstItem="of5-Dw-2i6" firstAttribute="top" secondItem="pq3-Os-VQQ" secondAttribute="bottom" constant="20" id="ZXa-l6-d3a"/>
+                <constraint firstItem="of5-Dw-2i6" firstAttribute="top" secondItem="pq3-Os-VQQ" secondAttribute="bottom" constant="40" id="ZXa-l6-d3a"/>
+                <constraint firstItem="Cdm-Mg-XLF" firstAttribute="centerY" secondItem="YHZ-EX-Ne1" secondAttribute="centerY" id="a8i-WO-LeL"/>
                 <constraint firstItem="pq3-Os-VQQ" firstAttribute="trailing" secondItem="eNB-i9-IcD" secondAttribute="trailing" id="ctG-jh-OS5"/>
                 <constraint firstItem="pq3-Os-VQQ" firstAttribute="centerY" secondItem="Cdm-Mg-XLF" secondAttribute="centerY" id="dvG-hX-Irz"/>
                 <constraint firstAttribute="trailing" secondItem="Ps6-R3-pFm" secondAttribute="trailing" id="hv3-Ub-ber"/>

@@ -132,6 +132,10 @@
     NSArray *images = [product objectForKey:@"images"];
     
     cell.titleLabel.text = title;
+    
+    cell.titleLabel.shadowColor = [UIColor lightGrayColor];
+    cell.titleLabel.shadowOffset = CGSizeMake(1.0, 1.0);
+    
     cell.subTitleLabel.text = subTitle;
     if (images.count > 0) {
         NSString *url = [[images objectAtIndex:0] objectForKey:@"url"];

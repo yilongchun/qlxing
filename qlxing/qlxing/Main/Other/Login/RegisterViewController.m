@@ -11,7 +11,7 @@
 #import "NSObject+Blocks.h"
 
 @interface RegisterViewController (){
-//    UIButton *getCodeBtn;
+    UIButton *getCodeBtn;
 }
 
 @end
@@ -25,9 +25,9 @@
     self.title = @"注册";
     
     [_regBtn setBackgroundColor:DEFAULT_COLOR];
-    [_codeBtn setTitleColor:DEFAULT_COLOR forState:UIControlStateNormal];
+//    [_codeBtn setTitleColor:DEFAULT_COLOR forState:UIControlStateNormal];
     ViewBorderRadius(_regBtn, 5, 1.0, DEFAULT_COLOR);
-    ViewBorderRadius(_codeBtn, 5, 0.5, RGBA(200, 200, 200, 0.8) );
+//    ViewBorderRadius(_codeBtn, 5, 0.5, RGBA(200, 200, 200, 0.8) );
     
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
 //    [self.view addGestureRecognizer:tap];
@@ -41,6 +41,10 @@
 //    [_regBtn setBackgroundImage:[UIImage imageNamed:@"btnBg"] forState:UIControlStateNormal];
 //    _regBtn.layer.masksToBounds = YES;
 //    _regBtn.layer.cornerRadius = 20;
+    
+    
+    
+    
     [_regBtn addTarget:self action:@selector(reg) forControlEvents:UIControlEventTouchUpInside];
 //
 //    [self.account setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
@@ -56,7 +60,21 @@
 //    [getCodeBtn setBackgroundImage:[UIImage createImageWithColor:RGB(230, 230, 230)] forState:UIControlStateNormal];
 //    [getCodeBtn setBackgroundImage:[UIImage createImageWithColor:RGB(240, 240, 240)] forState:UIControlStateHighlighted];
 //    getCodeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [_codeBtn addTarget:self action:@selector(getCode) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    getCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 7, 120, 41)];
+    [getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [getCodeBtn setTitleColor:DEFAULT_COLOR forState:UIControlStateNormal];
+    [getCodeBtn setTitleColor:RGB(5,198,232) forState:UIControlStateHighlighted];
+    getCodeBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [getCodeBtn addTarget:self action:@selector(getCode) forControlEvents:UIControlEventTouchUpInside];
+    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, 55)];
+    [rightView addSubview:getCodeBtn];
+    self.code.rightViewMode = UITextFieldViewModeAlways;
+    self.code.rightView = rightView;
+    
+    
+//    [_codeBtn addTarget:self action:@selector(getCode) forControlEvents:UIControlEventTouchUpInside];
 //    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
 //    [rightView addSubview:getCodeBtn];
 //    self.code.rightViewMode = UITextFieldViewModeAlways;
@@ -207,11 +225,11 @@
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置
-                _codeBtn.titleLabel.text = @"获取验证码";
-                [_codeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+                getCodeBtn.titleLabel.text = @"获取验证码";
+                [getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
 //                [_codeBtn setBackgroundColor:[UIColor whiteColor]];
-                _codeBtn.userInteractionEnabled = YES;
-                _codeBtn.enabled = YES;
+                getCodeBtn.userInteractionEnabled = YES;
+                getCodeBtn.enabled = YES;
             });
         }else{
             int seconds = timeout % 60;
@@ -221,12 +239,12 @@
                 //NSLog(@"____%@",strTime);
 //                [UIView beginAnimations:nil context:nil];
 //                [UIView setAnimationDuration:1];
-                _codeBtn.titleLabel.text = [NSString stringWithFormat:@"%@秒后重试",strTime];
-                [_codeBtn setTitle:[NSString stringWithFormat:@"%@秒后重试",strTime] forState:UIControlStateNormal];
+                getCodeBtn.titleLabel.text = [NSString stringWithFormat:@"%@秒后重试",strTime];
+                [getCodeBtn setTitle:[NSString stringWithFormat:@"%@秒后重试",strTime] forState:UIControlStateNormal];
 //                [_codeBtn setBackgroundColor:[UIColor lightGrayColor]];
 //                [UIView commitAnimations];
-                _codeBtn.userInteractionEnabled = NO;
-                _codeBtn.enabled = NO;
+                getCodeBtn.userInteractionEnabled = NO;
+                getCodeBtn.enabled = NO;
             });
             timeout--;
         }

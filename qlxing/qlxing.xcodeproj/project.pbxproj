@@ -140,6 +140,8 @@
 		44F29F2B1D1BCC3C005537C3 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F29F2A1D1BCC3C005537C3 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		44F29F2F1D1BDB5C005537C3 /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F29F2D1D1BDB5C005537C3 /* ForgetPwdViewController.m */; };
 		44F29F301D1BDB5C005537C3 /* ForgetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F29F2E1D1BDB5C005537C3 /* ForgetPwdViewController.xib */; };
+		44F29F341D1BE332005537C3 /* LoginForCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F29F321D1BE332005537C3 /* LoginForCodeViewController.m */; };
+		44F29F351D1BE332005537C3 /* LoginForCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F29F331D1BE332005537C3 /* LoginForCodeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -404,6 +406,9 @@
 		44F29F2C1D1BDB5C005537C3 /* ForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdViewController.h; sourceTree = "<group>"; };
 		44F29F2D1D1BDB5C005537C3 /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
 		44F29F2E1D1BDB5C005537C3 /* ForgetPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPwdViewController.xib; sourceTree = "<group>"; };
+		44F29F311D1BE332005537C3 /* LoginForCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginForCodeViewController.h; sourceTree = "<group>"; };
+		44F29F321D1BE332005537C3 /* LoginForCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginForCodeViewController.m; sourceTree = "<group>"; };
+		44F29F331D1BE332005537C3 /* LoginForCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginForCodeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +504,9 @@
 				44155A811D19325300649EA0 /* LoginViewController.h */,
 				44155A7D1D19325300649EA0 /* LoginViewController.m */,
 				44155A7E1D19325300649EA0 /* LoginViewController.xib */,
+				44F29F311D1BE332005537C3 /* LoginForCodeViewController.h */,
+				44F29F321D1BE332005537C3 /* LoginForCodeViewController.m */,
+				44F29F331D1BE332005537C3 /* LoginForCodeViewController.xib */,
 				44155A821D19325300649EA0 /* RegisterViewController.h */,
 				44155A7F1D19325300649EA0 /* RegisterViewController.m */,
 				44155A801D19325300649EA0 /* RegisterViewController.xib */,
@@ -1187,6 +1195,7 @@
 				44F29F301D1BDB5C005537C3 /* ForgetPwdViewController.xib in Resources */,
 				4457D1E61D1A8DA8000F20B8 /* NSDateTimeAgo.bundle in Resources */,
 				44F29F161D1B8D37005537C3 /* ProductActivityTableViewCell.xib in Resources */,
+				44F29F351D1BE332005537C3 /* LoginForCodeViewController.xib in Resources */,
 				44155A601D192C0100649EA0 /* LaunchScreen.storyboard in Resources */,
 				44F29F271D1BBFB0005537C3 /* LOGO-1024.png in Resources */,
 				44155A5D1D192C0100649EA0 /* Assets.xcassets in Resources */,
@@ -1273,6 +1282,7 @@
 				4457D1431D1A1C65000F20B8 /* UIWebView+AFNetworking.m in Sources */,
 				4457D1F31D1A8DA8000F20B8 /* NSObject+AssociatedObject.m in Sources */,
 				44F29EEE1D1B7E99005537C3 /* MJRefreshBackFooter.m in Sources */,
+				44F29F341D1BE332005537C3 /* LoginForCodeViewController.m in Sources */,
 				4457D1481D1A3A43000F20B8 /* MBProgressHUD.m in Sources */,
 				4457D1241D1A1B68000F20B8 /* AFURLResponseSerialization.m in Sources */,
 				4457D1EF1D1A8DA8000F20B8 /* NSManagedObjectContext+Fetching.m in Sources */,

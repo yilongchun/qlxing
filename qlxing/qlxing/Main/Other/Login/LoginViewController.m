@@ -10,10 +10,12 @@
 #import "RegisterViewController.h"
 #import "HomeViewController.h"
 #import "ForgetPwdViewController.h"
+#import "LoginForCodeViewController.h"
 
 @interface LoginViewController (){
     RegisterViewController *regVc;
     ForgetPwdViewController *forgetPwdVc;
+    LoginForCodeViewController *msgVc;
 }
 
 @end
@@ -26,6 +28,7 @@
     [_loginBtn setBackgroundColor:DEFAULT_COLOR];
     [_forgetPassword setTextColor:DEFAULT_COLOR];
     [_toRegister setTextColor:DEFAULT_COLOR];
+    [_msgLogin setTextColor:DEFAULT_COLOR];
     ViewBorderRadius(_loginBtn, 5, 1.0, DEFAULT_COLOR);
     
     // Do any additional setup after loading the view from its nib.
@@ -40,14 +43,13 @@
 //    _loginBtn.layer.masksToBounds = YES;
 //    _loginBtn.layer.cornerRadius = 20;
     [_loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-//    [self.account setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-//    [self.password setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-//    
+  
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(findPassword)];
     [_forgetPassword addGestureRecognizer:tap1];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToRegisger)];
     [_toRegister addGestureRecognizer:tap2];
-    
+    UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loginForMsg)];
+    [_msgLogin addGestureRecognizer:tap3];
     
 
     UIBarButtonItem *returnButtonItem = [[UIBarButtonItem alloc] init];
@@ -129,6 +131,16 @@
         regVc = [[RegisterViewController alloc] init];
     }
     [self.navigationController pushViewController:regVc animated:YES];
+}
+
+//短信登录
+-(void)loginForMsg{
+    if (msgVc == nil) {
+        msgVc = [[LoginForCodeViewController alloc] init];
+        msgVc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    }
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:msgVc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

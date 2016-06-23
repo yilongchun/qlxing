@@ -25,6 +25,8 @@
  */
 //登录
 #define API_AUTH_LOGIN @"/auth/login"
+//验证码登录
+#define API_AUTH_LOGIN_CODE @"/auth/login/code"
 //注册
 #define API_AUTH_REGISTER @"/auth/register"
 //重置密码

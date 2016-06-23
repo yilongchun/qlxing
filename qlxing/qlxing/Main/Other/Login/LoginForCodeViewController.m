@@ -1,35 +1,38 @@
 //
-//  ForgetPwdViewController.m
+//  LoginForCodeViewController.m
 //  qlxing
 //
 //  Created by Stephen Chin on 16/6/23.
 //  Copyright © 2016年 Stephen Chin. All rights reserved.
 //
 
+#import "LoginForCodeViewController.h"
+#import "HomeViewController.h"
+#import "LoginViewController.h"
+#import "RegisterViewController.h"
 #import "ForgetPwdViewController.h"
 #import "Util.h"
-#import "NSObject+Blocks.h"
 
-@interface ForgetPwdViewController (){
+@interface LoginForCodeViewController (){
+    RegisterViewController *regVc;
+    ForgetPwdViewController *forgetPwdVc;
+    LoginViewController *loginVc;
     UIButton *getCodeBtn;
 }
 
 @end
 
-@implementation ForgetPwdViewController
+@implementation LoginForCodeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"重置密码";
-    
-    [_regBtn setBackgroundColor:DEFAULT_COLOR];
-//    [_codeBtn setTitleColor:DEFAULT_COLOR forState:UIControlStateNormal];
-    ViewBorderRadius(_regBtn, 5, 1.0, DEFAULT_COLOR);
-//    ViewBorderRadius(_codeBtn, 5, 0.5, RGBA(200, 200, 200, 0.8) );
-    [_regBtn addTarget:self action:@selector(reg) forControlEvents:UIControlEventTouchUpInside];
-//    [_codeBtn addTarget:self action:@selector(getCode) forControlEvents:UIControlEventTouchUpInside];
+    [_loginBtn setBackgroundColor:DEFAULT_COLOR];
+    [_forgetPassword setTextColor:DEFAULT_COLOR];
+    [_toRegister setTextColor:DEFAULT_COLOR];
+    [_pwdLogin setTextColor:DEFAULT_COLOR];
+    ViewBorderRadius(_loginBtn, 5, 1.0, DEFAULT_COLOR);
     
     getCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 7, 120, 41)];
     [getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
@@ -39,38 +42,33 @@
     [getCodeBtn addTarget:self action:@selector(getCode) forControlEvents:UIControlEventTouchUpInside];
     UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, 55)];
     [rightView addSubview:getCodeBtn];
-    self.code.rightViewMode = UITextFieldViewModeAlways;
-    self.code.rightView = rightView;
+    self.password.rightViewMode = UITextFieldViewModeAlways;
+    self.password.rightView = rightView;
     
+    [_loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+    
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(findPassword)];
+    [_forgetPassword addGestureRecognizer:tap1];
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToRegisger)];
+    [_toRegister addGestureRecognizer:tap2];
+    UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loginForMsg)];
+    [_pwdLogin addGestureRecognizer:tap3];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    //    self.navigationController.navigationBar.translucent = YES;
-    //    [self.navigationController.navigationBar setShadowImage:[Util imageWithColor:[UIColor clearColor] size:CGSizeMake(320, 3)]];
-    //    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:RGBA(252, 228, 75,0.0)] forBarMetrics:UIBarMetricsDefault];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-//注册
--(void)reg{
+//登录
+-(void)login{
     if ([_account.text isEqualToString:@""]) {
-        [self showHintInView:self.view hint:@"请输入手机号码"];
+        [self showHintInView:self.view hint:@"请输入手机号码" ];
         [_account becomeFirstResponder];
-        return;
-    }
-    if (![Util isValidateMobile:_account.text]) {
-        [self showHintInView:self.view hint:@"请输入正确的手机号码"];
-        [_account becomeFirstResponder];
-        return;
-    }
-    if ([_code.text isEqualToString:@""]) {
-        [self showHintInView:self.view hint:@"请输入验证码"];
-        [_code becomeFirstResponder];
         return;
     }
     if ([_password.text isEqualToString:@""]) {
-        [self showHintInView:self.view hint:@"请输入密码"];
+        [self showHintInView:self.view hint:@"请输入验证码"];
         [_password becomeFirstResponder];
         return;
     }
@@ -78,25 +76,30 @@
     [self showHudInView:self.navigationController.view];
     
     
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     [parameters setObject:_account.text forKey:@"identity"];
-    [parameters setObject:_password.text forKey:@"password"];
-    [parameters setObject:_code.text forKey:@"code"];
-    //    [parameters setObject:_nickname.text forKey:@""];
+    [parameters setObject:_password.text forKey:@"code"];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_RESETPWD];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_LOGIN_CODE];
     [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [self hideHud];
-        DLog(@"%@",responseObject);
-        //        NSDictionary *dic= [NSDictionary dictionaryWithDictionary:responseObject];
-        [self showHintInView:self.view hint:@"重置成功"];
+        NSDictionary *dic= [NSDictionary dictionaryWithDictionary:responseObject];
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:dic forKey:LOGINED_USER];
+        DLog(@"%@",dic);
         
-        [self performBlock:^{
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        } afterDelay:1.5];
+        HomeViewController *homeVc = [[HomeViewController alloc] init];
+        [homeVc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:homeVc];
+        nc.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17],NSFontAttributeName, nil];
+        
+        [self presentViewController:nc animated:YES completion:^{
+            
+        }];
+        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -111,6 +114,42 @@
         
     }];
     
+}
+
+//找回密码
+-(void)findPassword{
+    if (forgetPwdVc == nil) {
+        forgetPwdVc = [[ForgetPwdViewController alloc] init];
+    }
+    [self.navigationController pushViewController:forgetPwdVc animated:YES];
+}
+
+//注册
+-(void)goToRegisger{
+    if (regVc == nil) {
+        regVc = [[RegisterViewController alloc] init];
+    }
+    [self.navigationController pushViewController:regVc animated:YES];
+}
+
+//短信登录
+-(void)loginForMsg{
+    if (loginVc == nil) {
+        loginVc = [[LoginViewController alloc] init];
+        loginVc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    }
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:loginVc];
+    [self presentViewController:nc animated:YES completion:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+//隐藏键盘
+-(void)hideKeyBoard{
+    [self.view endEditing:YES];
 }
 
 //获取验证码
@@ -132,7 +171,7 @@
     [parameters setObject:_account.text forKey:@"phone"];
     [parameters setObject:@"1" forKey:@"type"];
     
-    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_CODE_RESETPWD];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kHost,API_AUTH_CODE_LOGIN];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -156,16 +195,6 @@
         DLog(@"%@",dic);
         
     }];
-}
-
-//隐藏键盘
--(void)hideKeyBoard{
-    [self.view endEditing:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - 倒计时
@@ -205,4 +234,5 @@
     });
     dispatch_resume(_timer);
 }
+
 @end
