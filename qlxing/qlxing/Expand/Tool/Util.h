@@ -21,4 +21,12 @@
 
 //验证身份证
 + (BOOL) validateIdentityCard: (NSString *)identityCard;
+
++ (UIImage *)imageWithColor:(UIColor *)color;
+
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+
++ (BOOL)isPureInt:(NSString *)string;
+
++ (BOOL)isPureFloat:(NSString *)string;
 @end

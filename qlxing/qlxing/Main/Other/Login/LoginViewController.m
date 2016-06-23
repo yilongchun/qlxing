@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "HomeViewController.h"
 
 
 @interface LoginViewController (){
@@ -51,8 +52,8 @@
     self.navigationItem.backBarButtonItem = returnButtonItem;
      [self.navigationController.navigationBar setTintColor:DEFAULT_COLOR];
 
-//    _account.text = @"1867170121";
-//    _password.text = @"12345";
+    _account.text = @"18671701215";
+    _password.text = @"123456";
 }
 
 //登录
@@ -71,25 +72,6 @@
     [self showHudInView:self.navigationController.view];
     
     
-    
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    
-//    [manager GET:URL parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-//        
-//    }
-//         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//             
-//             NSLog(@"这里打印请求成功要做的事");
-//             
-//         }
-//     
-//         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull   error) {
-//             
-//             NSLog(@"%@",error);  //这里打印错误信息
-//             
-//         }];
-    
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     [parameters setObject:_account.text forKey:@"identity"];
@@ -105,6 +87,16 @@
         [ud setObject:dic forKey:LOGINED_USER];
         DLog(@"%@",dic);
         
+        HomeViewController *homeVc = [[HomeViewController alloc] init];
+        [homeVc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:homeVc];
+        nc.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17],NSFontAttributeName, nil];
+        
+        [self presentViewController:nc animated:YES completion:^{
+            
+        }];
+
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         [self hideHud];
@@ -117,7 +109,7 @@
         DLog(@"%@",dic);
         
     }];
- 
+
 }
 
 //找回密码

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" id="KGk-i7-Jjw" customClass="ProductTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="239"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rfo-Z5-QRp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member_no.gif" translatesAutoresizingMaskIntoConstraints="NO" id="q4L-Au-wh5">
+                        <rect key="frame" x="15" y="150" width="50" height="50"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="PYF-aD-04v"/>
+                            <constraint firstAttribute="width" constant="50" id="WeG-jD-LJu"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="古北水镇精品酒店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUu-Tj-UG7">
+                        <rect key="frame" x="73" y="189" width="120" height="18"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20点评" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFq-29-5Gf">
+                        <rect key="frame" x="73" y="212" width="39" height="15"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行走在水墨之间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78n-ey-N7m">
+                        <rect key="frame" x="97" y="76" width="126" height="22"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Target 1" translatesAutoresizingMaskIntoConstraints="NO" id="IA6-QA-HLp">
+                        <rect key="frame" x="287" y="211" width="18" height="17"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="三峡景区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlt-53-7eg">
+                        <rect key="frame" x="257" y="190" width="48" height="15"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="Xlt-53-7eg" firstAttribute="centerY" secondItem="YUu-Tj-UG7" secondAttribute="centerY" id="2zr-sL-5ZH"/>
+                    <constraint firstItem="q4L-Au-wh5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="150" id="4jv-Yx-9C5"/>
+                    <constraint firstItem="IA6-QA-HLp" firstAttribute="centerY" secondItem="QFq-29-5Gf" secondAttribute="centerY" id="8sT-y4-z9o"/>
+                    <constraint firstAttribute="trailing" secondItem="Rfo-Z5-QRp" secondAttribute="trailing" id="8zb-CU-A9L"/>
+                    <constraint firstAttribute="trailing" secondItem="IA6-QA-HLp" secondAttribute="trailing" constant="15" id="97M-bP-YcM"/>
+                    <constraint firstItem="Xlt-53-7eg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YUu-Tj-UG7" secondAttribute="trailing" constant="10" id="9pV-Yv-3pp"/>
+                    <constraint firstItem="q4L-Au-wh5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="EIJ-5w-qzq"/>
+                    <constraint firstItem="78n-ey-N7m" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Eta-IB-e9B"/>
+                    <constraint firstAttribute="trailing" secondItem="Xlt-53-7eg" secondAttribute="trailing" constant="15" id="FRI-CH-7nd"/>
+                    <constraint firstItem="QFq-29-5Gf" firstAttribute="leading" secondItem="YUu-Tj-UG7" secondAttribute="leading" id="Iiq-kE-edT"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="78n-ey-N7m" secondAttribute="trailing" constant="10" id="TF2-dk-xsf"/>
+                    <constraint firstItem="78n-ey-N7m" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-32.5" id="X6k-UE-4BJ"/>
+                    <constraint firstItem="Rfo-Z5-QRp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ZRB-gU-90w"/>
+                    <constraint firstItem="YUu-Tj-UG7" firstAttribute="top" secondItem="Rfo-Z5-QRp" secondAttribute="bottom" constant="15" id="dVb-P5-s9o"/>
+                    <constraint firstItem="YUu-Tj-UG7" firstAttribute="leading" secondItem="q4L-Au-wh5" secondAttribute="trailing" constant="8" id="dcm-zt-7a3"/>
+                    <constraint firstAttribute="bottom" secondItem="Rfo-Z5-QRp" secondAttribute="bottom" constant="65" id="e68-lu-0ri"/>
+                    <constraint firstItem="Rfo-Z5-QRp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fBj-Nf-dm5"/>
+                    <constraint firstItem="78n-ey-N7m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kRD-PO-OPa"/>
+                    <constraint firstItem="QFq-29-5Gf" firstAttribute="top" secondItem="YUu-Tj-UG7" secondAttribute="bottom" constant="5" id="pNS-bZ-OPe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="backgroundImage" destination="Rfo-Z5-QRp" id="mNm-0D-TzZ"/>
+                <outlet property="headImage" destination="q4L-Au-wh5" id="riM-8A-C2B"/>
+                <outlet property="subTitleLabel" destination="YUu-Tj-UG7" id="53M-cK-Wdx"/>
+                <outlet property="titleLabel" destination="78n-ey-N7m" id="KcE-T0-NCk"/>
+            </connections>
+            <point key="canvasLocation" x="297" y="316"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Target 1" width="18" height="17"/>
+        <image name="member_no.gif" width="150" height="150"/>
+    </resources>
+</document>

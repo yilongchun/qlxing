@@ -17,11 +17,25 @@
 
 #define DEFAULT_COLOR RGB(25,218,252)
 
-#define kHost @"http://120.27.112.178:4000/api/v1"
+#define kHost @"http://120.27.112.178/api/v1"
 
+
+/**
+ *  auth
+ */
 //登录
 #define API_AUTH_LOGIN @"/auth/login"
 //注册
 #define API_AUTH_REGISTER @"/auth/register"
-//发送验证码
-#define API_AUTH_CODE @"/auth/code"
+//发送注册验证码
+#define API_AUTH_CODE_REGISTER @"/auth/code/register"
+//发送登录验证码
+#define API_AUTH_CODE_LOGIN @"/auth/code/login"
+//发送重置密码验证码
+#define API_AUTH_CODE_RESETPWD @"/auth/code/resetpwd"
+
+/**
+*   product
+*/
+//产品列表
+#define API_PRODUCT @"/products/"
