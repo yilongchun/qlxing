@@ -9,10 +9,11 @@
 #import "ProductListViewController.h"
 #import "MJRefresh.h"
 #import "ProductTableViewCell.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 //#import "UINavigationController+FDFullscreenPopGesture.h"
 #import "ProductDetailViewController.h"
-
+#import "YYWebImage.h"
+#import "UIImage+YYWebImage.h"
 
 @interface ProductListViewController (){
     NSMutableArray *dataSource;
@@ -125,6 +126,9 @@
     if (cell == nil){
         cell= (ProductTableViewCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"ProductTableViewCell" owner:self options:nil]  lastObject];
         ViewBorderRadius(cell.headImage, cell.headImage.frame.size.height/2, 1.0, [UIColor whiteColor]);
+        
+        
+//        cell.headImage.image = [cell.headImage.image yy_imageByRoundCornerRadius:cell.headImage.frame.size.height/2 borderWidth:1.0 borderColor:[UIColor whiteColor]];
     }
     
     NSDictionary *product = [dataSource objectAtIndex:indexPath.row];
@@ -141,7 +145,11 @@
     cell.subTitleLabel.text = subTitle;
     if (images.count > 0) {
         NSString *url = [[images objectAtIndex:0] objectForKey:@"url"];
-        [cell.backgroundImage sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:SDWebImageTransformAnimatedImage];
+//        [cell.backgroundImage sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:SDWebImageTransformAnimatedImage];
+        
+        
+        [cell.backgroundImage yy_setImageWithURL:[NSURL URLWithString:url] placeholder:nil options:YYWebImageOptionSetImageWithFadeAnimation completion:nil];
+        
     }
     
     DLog(@"%@",product);

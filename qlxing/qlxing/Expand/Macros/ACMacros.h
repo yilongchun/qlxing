@@ -161,7 +161,7 @@
 #define isIOS6                  ([[[UIDevice currentDevice]systemVersion]floatValue] < 7.0)
 
 // 是否iPad
-#define isPad                   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//#define isPad                   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 // UIView - viewWithTag
 #define VIEWWITHTAG(_OBJECT, _TAG)\
