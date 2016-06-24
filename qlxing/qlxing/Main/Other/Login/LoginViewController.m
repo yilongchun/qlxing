@@ -95,7 +95,7 @@
         HomeViewController *homeVc = [[HomeViewController alloc] init];
         [homeVc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:homeVc];
-        nc.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17],NSFontAttributeName, nil];
+//        nc.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17],NSFontAttributeName, nil];
         
         [self presentViewController:nc animated:YES completion:^{
             

@@ -63,7 +63,7 @@
 //登录
 -(void)login{
     if ([_account.text isEqualToString:@""]) {
-        [self showHintInView:self.view hint:@"请输入手机号码" ];
+        [self showHintInView:self.navigationController.view hint:@"请输入手机号码" ];
         [_account becomeFirstResponder];
         return;
     }
@@ -94,7 +94,7 @@
         HomeViewController *homeVc = [[HomeViewController alloc] init];
         [homeVc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:homeVc];
-        nc.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17],NSFontAttributeName, nil];
+//        nc.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17],NSFontAttributeName, nil];
         
         [self presentViewController:nc animated:YES completion:^{
             
