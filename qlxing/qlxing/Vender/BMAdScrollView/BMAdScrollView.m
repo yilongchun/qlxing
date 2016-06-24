@@ -67,7 +67,7 @@ static CGFloat const TitleHeight = 30.0f;
         [self addSubview:titleView];
         
         // 默认显示标题
-        _titleHidden = NO;
+        _titleHidden = YES;
     }
     return self;
 }
@@ -117,7 +117,7 @@ static CGFloat const TitleHeight = 30.0f;
     titleLabel.font = [UIFont boldSystemFontOfSize:16];
     titleLabel.textColor=[UIColor whiteColor];
 //    titleLabel.alpha = 0.8;
-    [titleView addSubview:titleLabel];
+//    [titleView addSubview:titleLabel];
     
     return titleView;
 }
@@ -261,7 +261,7 @@ static  int pageNumber;//页码
         CGRect bannerFrame = CGRectMake(kWIDTH * i, 0, kWIDTH, heightValue);
         
         bannerView = [[BMBannerView alloc]initWithFrame:bannerFrame ImageName:imageURL title:title];
-        bannerView.titleHidden = NO;
+        bannerView.titleHidden = YES;
         //制定AOView委托
         
         bannerView.delegate = self;
@@ -301,14 +301,24 @@ static  int pageNumber;//页码
 
 -(void)addPageLabel:(CGRect)frame{
     CGRect pageFrame = CGRectMake(frame.size.width - 40, frame.size.height - 40, 30, 30);
-    pageLabel = [[UILabel alloc] initWithFrame:pageFrame];
-    pageLabel.backgroundColor = [UIColor grayColor];
+    
+//    pageLabel.backgroundColor = [UIColor grayColor];
+    
+    
+    UIView *view = [[UIView alloc] initWithFrame:pageFrame];
+    UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
+    imageview.backgroundColor = RGBA(200, 200, 200, 0.5);
+    [view addSubview:imageview];
+    pageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
     pageLabel.textColor = [UIColor whiteColor];
     pageLabel.textAlignment = NSTextAlignmentCenter;
     pageLabel.font = [UIFont systemFontOfSize:13];
-    ViewRadius(pageLabel, 15);
+    
     pageLabel.text = [NSString stringWithFormat:@"%@/%@",[NSString stringWithFormat:@"%d",1],[NSString stringWithFormat:@"%ld",(long)imageArray.count]];
-    [self addSubview:pageLabel];
+    [view addSubview:pageLabel];
+    
+    ViewRadius(view, 15);
+    [self addSubview:view];
 }
 
 // scrollview 委托函数
@@ -325,7 +335,7 @@ static  int pageNumber;//页码
         pageLabel.text = [NSString stringWithFormat:@"%@/%@",[NSString stringWithFormat:@"%d",page+1],[NSString stringWithFormat:@"%ld",(long)count]];
     }
     
-    DLog(@"%d",page);
+//    DLog(@"%d",page);
 }
 
 // scrollview 委托函数

@@ -8,7 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailViewController">
             <connections>
                 <outlet property="myScrollView" destination="lQj-m5-6Xd" id="u7r-pi-qin"/>
+                <outlet property="priceLabel" destination="aAp-8m-1Wr" id="Yaq-2f-F0v"/>
+                <outlet property="subTitleLabel" destination="AvG-2o-44D" id="7D9-bp-IxG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view1" destination="2lS-RQ-Qjx" id="uZ7-b1-j46"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -30,6 +33,63 @@
                 <constraint firstItem="lQj-m5-6Xd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rAY-4E-PrM"/>
             </constraints>
             <point key="canvasLocation" x="297" y="303"/>
+        </view>
+        <view contentMode="scaleToFill" id="2lS-RQ-Qjx">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="副标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvG-2o-44D">
+                    <rect key="frame" x="15" y="15" width="51" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元起" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPQ-ZZ-brl">
+                    <rect key="frame" x="279" y="19" width="26" height="16"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAp-8m-1Wr">
+                    <rect key="frame" x="212" y="14" width="62" height="23"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" red="0.99607843137254903" green="0.39215686274509803" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三峡景区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0j2-hy-h2o">
+                    <rect key="frame" x="253" y="43" width="52" height="16"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 点评" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6j-4v-19k">
+                    <rect key="frame" x="259" y="64" width="46" height="16"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <constraints>
+                <constraint firstItem="JPQ-ZZ-brl" firstAttribute="leading" secondItem="aAp-8m-1Wr" secondAttribute="trailing" constant="5" id="31R-w7-YRS"/>
+                <constraint firstItem="AvG-2o-44D" firstAttribute="top" secondItem="2lS-RQ-Qjx" secondAttribute="top" constant="15" id="6DC-9b-TKd"/>
+                <constraint firstItem="JPQ-ZZ-brl" firstAttribute="trailing" secondItem="0j2-hy-h2o" secondAttribute="trailing" id="LlO-NU-owP"/>
+                <constraint firstItem="JPQ-ZZ-brl" firstAttribute="bottom" secondItem="AvG-2o-44D" secondAttribute="bottom" constant="-1" id="PGV-ej-DfO"/>
+                <constraint firstItem="AvG-2o-44D" firstAttribute="leading" secondItem="2lS-RQ-Qjx" secondAttribute="leading" constant="15" id="Tbd-gf-8fi"/>
+                <constraint firstItem="aAp-8m-1Wr" firstAttribute="centerY" secondItem="AvG-2o-44D" secondAttribute="centerY" id="bx0-Fe-SdA"/>
+                <constraint firstItem="0j2-hy-h2o" firstAttribute="top" secondItem="JPQ-ZZ-brl" secondAttribute="bottom" constant="8" id="n2D-Tr-iW2"/>
+                <constraint firstAttribute="trailing" secondItem="JPQ-ZZ-brl" secondAttribute="trailing" constant="15" id="pin-J6-Ulf"/>
+                <constraint firstItem="x6j-4v-19k" firstAttribute="top" secondItem="0j2-hy-h2o" secondAttribute="bottom" constant="5" id="sjq-7l-7Rf"/>
+                <constraint firstItem="JPQ-ZZ-brl" firstAttribute="trailing" secondItem="x6j-4v-19k" secondAttribute="trailing" id="vMK-ZZ-uom"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="710" y="89.5"/>
         </view>
     </objects>
 </document>
