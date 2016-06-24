@@ -84,6 +84,9 @@
 		4457D2011D1A8DA8000F20B8 /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4457D1CC1D1A8DA8000F20B8 /* NSTimer+Addition.m */; };
 		4457D2021D1A8DA8000F20B8 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4457D1CE1D1A8DA8000F20B8 /* NSTimer+Blocks.m */; };
 		4457D2031D1A8DA8000F20B8 /* NSURL+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = 4457D1D11D1A8DA8000F20B8 /* NSURL+Param.m */; };
+		44D1DDAE1D1CCD9100582936 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D1DDAC1D1CCD9100582936 /* ProductDetailViewController.m */; };
+		44D1DDAF1D1CCD9100582936 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44D1DDAD1D1CCD9100582936 /* ProductDetailViewController.xib */; };
+		44D1DDB31D1CD33600582936 /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D1DDB21D1CD33600582936 /* BMAdScrollView.m */; };
 		44F29EA01D1B7545005537C3 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F29E711D1B7545005537C3 /* TAAbstractDotView.m */; };
 		44F29EA11D1B7545005537C3 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F29E731D1B7545005537C3 /* TAAnimatedDotView.m */; };
 		44F29EA21D1B7545005537C3 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F29E751D1B7545005537C3 /* TADotView.m */; };
@@ -300,6 +303,11 @@
 		4457D1CE1D1A8DA8000F20B8 /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 		4457D1D01D1A8DA8000F20B8 /* NSURL+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Param.h"; sourceTree = "<group>"; };
 		4457D1D11D1A8DA8000F20B8 /* NSURL+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Param.m"; sourceTree = "<group>"; };
+		44D1DDAB1D1CCD9100582936 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		44D1DDAC1D1CCD9100582936 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		44D1DDAD1D1CCD9100582936 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
+		44D1DDB11D1CD33600582936 /* BMAdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdScrollView.h; sourceTree = "<group>"; };
+		44D1DDB21D1CD33600582936 /* BMAdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAdScrollView.m; sourceTree = "<group>"; };
 		44F29E701D1B7545005537C3 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
 		44F29E711D1B7545005537C3 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
 		44F29E721D1B7545005537C3 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
@@ -553,6 +561,7 @@
 		44155A791D19313600649EA0 /* Vender(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				44D1DDB01D1CD33600582936 /* BMAdScrollView */,
 				44F29F281D1BCC3C005537C3 /* FDFullscreenPopGesture */,
 				44F29EBE1D1B7E98005537C3 /* MJRefresh */,
 				44F29E6E1D1B7545005537C3 /* SDCycleScrollView */,
@@ -911,6 +920,15 @@
 			path = NSURL;
 			sourceTree = "<group>";
 		};
+		44D1DDB01D1CD33600582936 /* BMAdScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				44D1DDB11D1CD33600582936 /* BMAdScrollView.h */,
+				44D1DDB21D1CD33600582936 /* BMAdScrollView.m */,
+			);
+			path = BMAdScrollView;
+			sourceTree = "<group>";
+		};
 		44F29E6E1D1B7545005537C3 /* SDCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1004,9 @@
 				44F29F191D1B8D85005537C3 /* ProductListViewController.h */,
 				44F29F1A1D1B8D85005537C3 /* ProductListViewController.m */,
 				44F29F1B1D1B8D85005537C3 /* ProductListViewController.xib */,
+				44D1DDAB1D1CCD9100582936 /* ProductDetailViewController.h */,
+				44D1DDAC1D1CCD9100582936 /* ProductDetailViewController.m */,
+				44D1DDAD1D1CCD9100582936 /* ProductDetailViewController.xib */,
 				44F29F1E1D1B8D99005537C3 /* Cell */,
 			);
 			name = "Product(产品)";
@@ -1189,6 +1210,7 @@
 				44155A841D19325300649EA0 /* LoginViewController.xib in Resources */,
 				44F29F231D1B8E7F005537C3 /* ProductTableViewCell.xib in Resources */,
 				44F29F261D1BBFB0005537C3 /* member_no.gif in Resources */,
+				44D1DDAF1D1CCD9100582936 /* ProductDetailViewController.xib in Resources */,
 				44F29F1D1D1B8D85005537C3 /* ProductListViewController.xib in Resources */,
 				4457D1521D1A7D48000F20B8 /* Localizable.strings in Resources */,
 				44155A861D19325300649EA0 /* RegisterViewController.xib in Resources */,
@@ -1214,6 +1236,7 @@
 			files = (
 				44F29EAB1D1B7545005537C3 /* SDWebImageDecoder.m in Sources */,
 				44F29F221D1B8E7F005537C3 /* ProductTableViewCell.m in Sources */,
+				44D1DDB31D1CD33600582936 /* BMAdScrollView.m in Sources */,
 				4457D1231D1A1B68000F20B8 /* AFURLRequestSerialization.m in Sources */,
 				4457D1401D1A1C65000F20B8 /* UIImageView+AFNetworking.m in Sources */,
 				44155A851D19325300649EA0 /* RegisterViewController.m in Sources */,
@@ -1263,6 +1286,7 @@
 				44F29EF71D1B7E99005537C3 /* MJRefreshBackStateFooter.m in Sources */,
 				4457D1FA1D1A8DA8000F20B8 /* NSString+Hash.m in Sources */,
 				44F29EB31D1B7545005537C3 /* UIImage+WebP.m in Sources */,
+				44D1DDAE1D1CCD9100582936 /* ProductDetailViewController.m in Sources */,
 				4457D1E71D1A8DA8000F20B8 /* NSDateFormatter+Make.m in Sources */,
 				44F29EAE1D1B7545005537C3 /* SDWebImageManager.m in Sources */,
 				4457D13B1D1A1C65000F20B8 /* AFAutoPurgingImageCache.m in Sources */,

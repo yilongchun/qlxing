@@ -10,7 +10,9 @@
 #import "MJRefresh.h"
 #import "ProductTableViewCell.h"
 #import "UIImageView+WebCache.h"
-#import "UINavigationController+FDFullscreenPopGesture.h"
+//#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "ProductDetailViewController.h"
+
 
 @interface ProductListViewController (){
     NSMutableArray *dataSource;
@@ -150,6 +152,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ProductDetailViewController *vc = [[ProductDetailViewController alloc] init];
+    NSDictionary *product = [dataSource objectAtIndex:indexPath.row];
+    vc.productId = [product objectForKey:@"id"];
+    [self.navigationController pushViewController:vc animated:YES];
     //    LViewControllerDetail *vc = [[LViewControllerDetail alloc] init];
     //    vc.hidesBottomBarWhenPushed = YES;
     //    [self.navigationController pushViewController:vc animated:YES];
